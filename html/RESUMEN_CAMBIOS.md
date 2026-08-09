@@ -1,0 +1,1 @@
+/var/www/inventario.anihost.lat/html_bak/RESUMEN_CAMBIOS.md

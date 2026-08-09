@@ -1,0 +1,1 @@
+/var/www/inventario.anihost.lat/html_bak/run-upgrade.php
