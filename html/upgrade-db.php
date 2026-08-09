@@ -1,1 +1,3 @@
-/var/www/inventario.anihost.lat/html_bak/upgrade-db.php
+<?php
+http_response_code(404);
+exit;

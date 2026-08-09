@@ -1,1 +1,191 @@
-/var/www/inventario.anihost.lat/html_bak/GUIA_WINSCP_HESTIACP.txt
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              GUÍA DE INSTALACIÓN - WINSCP + HESTIACP                       ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+¿QUÉ ES WINSCP?
+
+WinSCP es una herramienta gráfica para transferir archivos por SFTP/SCP.
+Funciona perfecto con HestiaCP.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 1: DESCARGAR WINSCP
+
+1. Ve a: https://winscp.net/eng/download.php
+2. Descarga la versión: "Installation Package"
+3. Ejecuta el installer
+4. Acepta las opciones por defecto
+5. Instala en: C:\Program Files\WinSCP\
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 2: USAR EL SCRIPT AUTOMÁTICO
+
+Opción A: Modo Automático (SIN GUI)
+─────────────────────────────────
+
+  powershell -ExecutionPolicy Bypass -File .\Upload-WinSCP.ps1
+
+  Luego selecciona:
+    1) Para subir automáticamente a 192.168.4.12
+    2) Para subir automáticamente a 192.168.4.13
+
+  El script subirá TODOS los archivos sin que hagas nada más.
+
+
+Opción B: Modo Manual (CON GUI)
+────────────────────────────────
+
+  powershell -ExecutionPolicy Bypass -File .\Upload-WinSCP.ps1
+
+  Luego selecciona:
+    3) Para abrir GUI en 192.168.4.12
+    4) Para abrir GUI en 192.168.4.13
+
+  Se abrirá WinSCP con la conexión ya configurada.
+  Luego:
+    • A la izquierda: Tus archivos locales
+    • A la derecha: Archivos en el servidor
+    • Arrastra y suelta para subir
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 3: VERIFICAR SUBIDA
+
+Una vez subidos los archivos en HestiaCP:
+
+1. Abre tu panel HestiaCP
+2. Ve a: Admin → File Manager
+3. Busca la carpeta: inventario
+4. Deberías ver todos los archivos
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CREDENCIALES PRECONFIGURADAS
+
+✓ Usuario:    Prexty_share
+✓ Contraseña: BZ2MJwQ(^Us+s2{t}
+✓ IP 1:       192.168.4.12
+✓ IP 2:       192.168.4.13
+✓ Carpeta:    /home/Prexty_share/inventario
+
+(Ya están en el script, NO necesitas escribirlas)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VELOCIDAD COMPARADA
+
+Método          | Velocidad | Facilidad | Automatización
+─────────────────────────────────────────────────────────
+SCP Directo      | Rápida    | Media     | Alta
+WinSCP GUI       | Media     | Alta      | No
+WinSCP Auto      | Rápida    | Alta      | Alta ✓
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMENDACIÓN PARA HESTIACP
+
+✓ Usa: Upload-WinSCP.ps1 (Modo Automático - Opción 1 ó 2)
+
+Ventajas:
+  • Funciona perfectamente con HestiaCP
+  • No necesita GUI
+  • Subida automática sin interacción
+  • Más rápido que SSH
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SOLUCIÓN DE PROBLEMAS
+
+❌ "WinSCP no encontrado"
+   → Descarga e instala desde https://winscp.net
+   → Instala en C:\Program Files\WinSCP\
+   → Luego ejecuta el script nuevamente
+
+❌ "Connection refused"
+   → Verifica que el servidor esté encendido
+   → Verifica IP correcta: ping 192.168.4.12
+   → Verifica usuario/contraseña en HestiaCP
+
+❌ "Permission denied"
+   → El usuario Prexty_share no existe
+   → Crea ese usuario en HestiaCP
+   → O cambia el nombre en el script
+
+❌ "Remote path not found"
+   → Crea la carpeta /home/Prexty_share/inventario
+   → O cambia la ruta en el script
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COMANDOS RÁPIDOS
+
+Subida automática a 192.168.4.12:
+  powershell -ExecutionPolicy Bypass -File .\Upload-WinSCP.ps1
+  → Presiona 1
+
+Abrir GUI WinSCP:
+  powershell -ExecutionPolicy Bypass -File .\Upload-WinSCP.ps1
+  → Presiona 3 (o 4 para backup)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DESPUÉS DE SUBIR
+
+Una vez subidos los archivos al servidor:
+
+1. Conecta por SSH al servidor:
+   ssh Prexty_share@192.168.4.12
+
+2. Ve a la carpeta:
+   cd /home/Prexty_share/inventario
+
+3. Ejecuta la migración de BD:
+   php upgrade-db.php
+
+4. Verifica:
+   php check-update.php
+
+5. ¡Listo!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿NECESITAS AYUDA?
+
+1. WinSCP no suba archivos:
+   → Usa modo GUI (Opción 3/4) para ver qué pasa
+   → Verifica permisos en HestiaCP
+
+2. HestiaCP no ejecuta PHP:
+   → Verifica que PHP está habilitado
+   → Verifica permisos de la carpeta
+
+3. Los archivos no aparecen en la web:
+   → Verifica ruta en navegador: http://tu-ip/inventario/
+   → Verifica que index.php existe en la carpeta
+
+4. Más problemas:
+   → Lee los logs de HestiaCP
+   → Verifica conectividad: ping 192.168.4.12
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    ¡YA ESTÁS LISTO PARA COMENZAR!                         ║
+║                                                                            ║
+║          Ejecuta: Upload-WinSCP.ps1 y selecciona opción 1                 ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝

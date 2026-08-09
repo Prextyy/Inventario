@@ -1,1 +1,188 @@
-/var/www/inventario.anihost.lat/html_bak/INSTALL.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Instalación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        p, li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background: #d1e7dd;
+            border-left: 4px solid #198754;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📦</div>
+        <h1>Bienvenido al Sistema de Inventario</h1>
+        <p>Gracias por elegir nuestro sistema. Sigue estos pasos para comenzar:</p>
+        
+        <div class="success">
+            <strong>✓ Archivos instalados correctamente</strong><br>
+            Todos los archivos del sistema están en su lugar.
+        </div>
+        
+        <h2>Pasos para la Instalación</h2>
+        
+        <div class="step">
+            <h3>📋 Paso 1: Preparar la Base de Datos</h3>
+            <p>Antes de continuar, asegúrate de tener:</p>
+            <ul>
+                <li>Una base de datos MySQL creada</li>
+                <li>El nombre de usuario y contraseña de MySQL</li>
+                <li>El nombre del host (generalmente <code>localhost</code>)</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h3>🚀 Paso 2: Ejecutar el Instalador</h3>
+            <p>Haz clic en el botón de abajo para iniciar el asistente de instalación:</p>
+            <a href="install/" class="btn">Iniciar Instalación</a>
+        </div>
+        
+        <div class="step">
+            <h3>📷 Paso 3: Configurar Escáner QR (Opcional)</h3>
+            <p>Para usar el escáner de códigos QR, necesitas la librería Html5-QRCode.</p>
+            <p><strong>Opción Rápida:</strong> El sistema funciona sin el escáner, puedes configurarlo después.</p>
+            <p><strong>Para configurarlo ahora:</strong> Lee el archivo <code>assets/js/DOWNLOAD_QR_LIBRARY.md</code></p>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Importante</strong><br>
+            Elimina este archivo (<code>INSTALL.html</code>) después de completar la instalación por seguridad.
+        </div>
+        
+        <h2>Características del Sistema</h2>
+        <ul>
+            <li>✅ Gestión completa de productos</li>
+            <li>✅ Entrada rápida con teclado</li>
+            <li>✅ Escáner de códigos QR/Barras</li>
+            <li>✅ Exportación a PDF y Excel</li>
+            <li>✅ Control de stock bajo</li>
+            <li>✅ Historial de movimientos</li>
+            <li>✅ Interfaz moderna y responsive</li>
+            <li>✅ Multi-usuario con roles</li>
+        </ul>
+        
+        <h2>Requisitos del Sistema</h2>
+        <ul>
+            <li>PHP 7.0 o superior</li>
+            <li>MySQL 5.6 o superior</li>
+            <li>Servidor web (Apache/Nginx/IIS)</li>
+            <li>Navegador moderno</li>
+        </ul>
+        
+        <div class="success">
+            <strong>📖 Documentación Completa</strong><br>
+            Lee el archivo <code>README.md</code> para instrucciones detalladas y solución de problemas.
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid #dee2e6;">
+            <p style="color: #999;">Sistema de Inventario v1.0.0</p>
+            <p style="color: #999;">Desarrollado con ❤️ usando PHP puro</p>
+        </div>
+    </div>
+</body>
+</html>
