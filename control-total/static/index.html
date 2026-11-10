@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Total</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <span class="brand-mark">CT</span>
+    <div><strong>Control Total</strong><small id="version"></small></div>
+  </div>
+  <label class="year-picker">Año
+    <select id="anio"></select>
+  </label>
+  <nav id="nav"></nav>
+  <div class="sidebar-foot" id="dbpath" title="Ubicación de la base de datos"></div>
+</aside>
+
+<main>
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+    <h1 id="titulo">Inicio</h1>
+    <div class="topbar-actions" id="acciones"></div>
+  </header>
+  <section id="vista"></section>
+</main>
+
+<dialog id="modal">
+  <form method="dialog" id="form">
+    <header class="modal-head">
+      <h2 id="modalTitulo">Registro</h2>
+      <button type="button" class="icon-btn" id="cerrarModal" aria-label="Cerrar">✕</button>
+    </header>
+    <div class="form-grid" id="formCampos"></div>
+    <p class="meta" id="formMeta"></p>
+    <footer class="modal-foot">
+      <button type="button" class="btn danger ghost" id="btnEliminar">Eliminar</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn ghost" id="btnDuplicar" title="Crear una copia de este registro">Duplicar</button>
+      <button type="button" class="btn" id="btnCancelar">Cancelar</button>
+      <button type="submit" class="btn primary" id="btnGuardar">Guardar <kbd>Ctrl+Enter</kbd></button>
+    </footer>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

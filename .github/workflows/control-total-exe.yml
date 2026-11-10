@@ -1,0 +1,33 @@
+name: Control Total - ejecutable Windows
+
+on:
+  push:
+    paths:
+      - "control-total/**"
+      - ".github/workflows/control-total-exe.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: control-total
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar PyInstaller
+        run: python -m pip install pyinstaller==6.11.1
+      - name: Construir ControlTotal.exe
+        run: python -m PyInstaller --noconfirm --onefile --name ControlTotal --add-data "static;static" app.py
+      - name: Preparar paquete portable
+        shell: bash
+        run: |
+          mkdir -p paquete/ControlTotal
+          cp dist/ControlTotal.exe README.md paquete/ControlTotal/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ControlTotal-portable-windows
+          path: control-total/paquete/

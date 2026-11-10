@@ -1,0 +1,9 @@
+# Datos locales (no se suben al repositorio)
+*.db
+*.db-wal
+*.db-shm
+respaldos/
+__pycache__/
+build/
+dist/
+*.spec
